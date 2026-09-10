@@ -16,7 +16,7 @@ Public installation is temporarily paused while the execution boundary is
 redesigned so proprietary implementation does not ship to user machines.
 There is currently no supported Homebrew, npm, or direct-download install.
 
-## Quick start
+## Planned CLI surface
 
 ```bash
 # Static inventory and source checks
@@ -40,17 +40,15 @@ Exit `2` is never a pass. Every clean result carries its denominator.
 
 ## What is public and private
 
-| Public distribution | Kept private |
+| Public repository | Kept private |
 | --- | --- |
-| Installer, usage documentation, checksums | Development Git history and internal issue tracker |
-| Minified operational JavaScript required to run locally | Readable Rust kernel source |
-| Signed universal macOS kernel binary | Mathematical specifications and derivations |
-| JSON schemas needed to validate artifacts | Notebooks, figures, formal audits, benchmark oracles |
+| Product and usage documentation | All executable implementation |
+| Issue and private-security intake | Development Git history and internal issue tracker |
+| Public-boundary CI policy | Mathematical specifications, derivations, and kernel source |
+| Public CLI contract | Schemas, notebooks, figures, audits, benchmarks, and oracles |
 
-The mathematical source is not present in this repository or its release
-archive. As with any locally installed software, compiled binaries and minified
-runtime code can be reverse engineered; this distribution boundary prevents
-ordinary source disclosure, not forensic extraction.
+There is no executable release archive. A future public client must keep
+proprietary execution server-side or use another owner-approved risk boundary.
 
 ## Data and safety
 
@@ -73,5 +71,5 @@ Report vulnerabilities through a
 
 ## License
 
-The installer and official binary distribution are covered by [LICENSE](LICENSE).
-No source-code or mathematical-model license is granted.
+Public repository material is covered by [LICENSE](LICENSE). No source-code or
+mathematical-model license is granted.
