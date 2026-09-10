@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-version="0.10.2"
+version="0.10.3"
 archive="automated-qa-v${version}-darwin-universal.tar.gz"
-expected_sha256="ed1764d1894b22ca74edb8d246831a8d52270dce4ae5a2b3d94ed1f357d6ed88"
+expected_sha256="2eebd4ecd8d588a32734f02518d76b8a0a3f87729e871043db45b7daac3184c4"
 url="https://github.com/Benmore-Studio/automated-qa/releases/download/v${version}/${archive}"
 
 fail() {
