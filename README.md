@@ -21,8 +21,10 @@ brew install benmore-studio/benmore/qa
 ### npm
 
 ```bash
-npm install --global automated-qa
+npm install --global https://github.com/Benmore-Studio/automated-qa/releases/download/v0.11.0/automated-qa-0.11.0.tgz
 ```
+
+The npmjs.com short name is pending publish-grade 2FA on the maintainer account.
 
 ### Direct installer
 
