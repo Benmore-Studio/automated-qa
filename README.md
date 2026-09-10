@@ -10,34 +10,11 @@ This is the public **distribution repository**. It contains installation and
 support material only. The private development repository, mathematical model,
 derivations, notebooks, audits, benchmarks, and kernel source are not published.
 
-## Install
+## Public beta status
 
-### Homebrew
-
-```bash
-brew install benmore-studio/benmore/qa
-```
-
-### Installer
-
-```bash
-git clone --depth 1 https://github.com/Benmore-Studio/automated-qa.git
-bash automated-qa/install.sh
-```
-
-Requirements: macOS on Apple Silicon or Intel, Node.js 18 or newer, and Bash.
-Playwright and Chromium are fetched on first runtime use. Static verification
-does not need a browser.
-
-Verify the install:
-
-```bash
-qa --version
-qa verify /absolute/path/to/your/frontend --preflight
-```
-
-The collision-free `automated-qa` command is installed beside `qa` and runs the
-same CLI.
+Public installation is temporarily paused while the execution boundary is
+redesigned so proprietary implementation does not ship to user machines.
+There is currently no supported Homebrew, npm, or direct-download install.
 
 ## Quick start
 
@@ -93,16 +70,6 @@ payloads, private source, or unreviewed screenshots.
 
 Report vulnerabilities through a
 [private security advisory](https://github.com/Benmore-Studio/automated-qa/security/advisories/new).
-
-## Uninstall
-
-```bash
-rm ~/.local/bin/qa ~/.local/bin/automated-qa
-```
-
-The versioned payload remains under `~/.local/share/automated-qa/` so removal is
-recoverable. Delete that directory manually only after checking it contains no
-files you added.
 
 ## License
 
