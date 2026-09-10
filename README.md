@@ -10,13 +10,36 @@ This is the public **distribution repository**. It contains installation and
 support material only. The private development repository, mathematical model,
 derivations, notebooks, audits, benchmarks, and kernel source are not published.
 
-## Public beta status
+## Install
 
-Public installation is temporarily paused while the execution boundary is
-redesigned so proprietary implementation does not ship to user machines.
-There is currently no supported Homebrew, npm, or direct-download install.
+### Homebrew
 
-## Planned CLI surface
+```bash
+brew install benmore-studio/benmore/qa
+```
+
+### npm
+
+```bash
+npm install --global automated-qa
+```
+
+### Direct installer
+
+```bash
+git clone --depth 1 https://github.com/Benmore-Studio/automated-qa.git
+bash automated-qa/install.sh
+```
+
+Requirements: macOS or Linux on x64 or arm64, Node.js 18 or newer, and Bash.
+Playwright and Chromium are fetched on first runtime use. Static verification
+does not need a browser.
+
+All three methods install `qa`, `automated-qa`, and `qa-install-skill`.
+The direct installer registers the skill automatically; after Homebrew or npm,
+run `qa-install-skill` once.
+
+## Quick start
 
 ```bash
 # Static inventory and source checks
@@ -40,15 +63,16 @@ Exit `2` is never a pass. Every clean result carries its denominator.
 
 ## What is public and private
 
-| Public repository | Kept private |
+| Public distribution | Kept private |
 | --- | --- |
-| Product and usage documentation | All executable implementation |
-| Issue and private-security intake | Development Git history and internal issue tracker |
-| Public-boundary CI policy | Mathematical specifications, derivations, and kernel source |
-| Public CLI contract | Schemas, notebooks, figures, audits, benchmarks, and oracles |
+| Installer, sanitized skill, usage documentation, checksums | Development Git history and internal issue tracker |
+| Minified operational runtime required for local execution | Readable implementation and Rust kernel source |
+| Compiled macOS/Linux kernels and artifact schemas | Mathematical specifications and derivations |
+| Public CLI and evidence contracts | Notebooks, figures, formal audits, tests, and benchmark oracles |
 
-There is no executable release archive. A future public client must keep
-proprietary execution server-side or use another owner-approved risk boundary.
+Compiled and minified software can be reverse engineered. This owner-approved
+distribution boundary prevents ordinary source disclosure; it is not a claim
+of cryptographic secrecy.
 
 ## Data and safety
 
@@ -71,5 +95,6 @@ Report vulnerabilities through a
 
 ## License
 
-Public repository material is covered by [LICENSE](LICENSE). No source-code or
-mathematical-model license is granted.
+The installer and official runtime distribution are covered by
+[LICENSE](LICENSE). No readable source-code or mathematical-model license is
+granted.

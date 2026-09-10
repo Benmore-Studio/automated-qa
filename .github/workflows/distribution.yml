@@ -9,8 +9,11 @@ permissions:
   contents: read
 
 jobs:
-  public-boundary:
-    runs-on: ubuntu-latest
+  clean-install:
+    strategy:
+      matrix:
+        os: [macos-14, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v5
       - name: public-source boundary
@@ -19,3 +22,12 @@ jobs:
             echo "private implementation material is tracked in the distribution repository" >&2
             exit 1
           fi
+      - name: installer syntax
+        run: bash -n install.sh install-skill.sh
+      - name: clean install from public release
+        run: |
+          QA_INSTALL_ROOT="$RUNNER_TEMP/automated-qa" \
+          QA_BIN_DIR="$RUNNER_TEMP/bin" \
+          bash install.sh
+          "$RUNNER_TEMP/bin/qa" --version | grep 'automated-qa 0.11.0'
+          "$RUNNER_TEMP/bin/automated-qa" --help | grep 'evidence-first frontend verification'
