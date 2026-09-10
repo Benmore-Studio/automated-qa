@@ -1,0 +1,30 @@
+name: distribution
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos-install:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v5
+      - name: public-source boundary
+        run: |
+          if git ls-files | grep -E '(^|/)(agent|benchmarks?|references?|schemas?|tests?)(/|$)|\.(rs|mjs|js|nb|wl|svg|png)$'; then
+            echo "private implementation material is tracked in the distribution repository" >&2
+            exit 1
+          fi
+      - name: installer syntax
+        run: bash -n install.sh
+      - name: clean install from public release
+        run: |
+          QA_INSTALL_ROOT="$RUNNER_TEMP/automated-qa" \
+          QA_BIN_DIR="$RUNNER_TEMP/bin" \
+          bash install.sh
+          "$RUNNER_TEMP/bin/qa" --version | grep 'automated-qa 0.10.2'
+          "$RUNNER_TEMP/bin/automated-qa" --help | grep 'evidence-first frontend verification'

@@ -1,5 +1,7 @@
 # Automated QA
 
+[![distribution](https://github.com/Benmore-Studio/automated-qa/actions/workflows/distribution.yml/badge.svg)](https://github.com/Benmore-Studio/automated-qa/actions/workflows/distribution.yml)
+
 Automated QA is an evidence-first frontend verification CLI. It inventories an
 application, finds source-decidable defects, exercises real browser behavior,
 and reports both findings and what was not measured.
